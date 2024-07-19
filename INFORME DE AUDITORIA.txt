@@ -1,0 +1,131 @@
+from docx import Document
+from docx.shared import Pt
+
+# Crear un nuevo documento
+doc = Document()
+
+# Título del informe
+doc.add_heading('Informe de Auditoría de Sistemas', 0)
+
+# Universidad y detalles del curso
+doc.add_heading('Universidad Católica de Santiago de Guayaquil', level=1)
+doc.add_heading('Facultad de Economía y Empresa', level=2)
+doc.add_heading('Carrera de Contabilidad y Auditoría', level=2)
+doc.add_heading('Auditoría de Sistemas y Bases de Datos', level=2)
+
+# Integrantes
+doc.add_heading('Integrantes:', level=2)
+doc.add_paragraph('Eras Camacho Elena Abigail')
+doc.add_paragraph('Liger Segovia Yasmellyn Mikaela')
+doc.add_paragraph('Vásconez Barzola Yenny Magdalena')
+
+# Profesor
+doc.add_heading('Profesor:', level=2)
+doc.add_paragraph('Ing. Said Diez Farhat PhD.')
+
+# Fecha
+doc.add_heading('Fecha:', level=2)
+doc.add_paragraph('Guayaquil, 18 de julio del 2024')
+
+# Evaluación del Departamento de Sistemas
+doc.add_heading('Evaluación del Departamento de Sistemas', level=1)
+
+# Gestión de Acceso
+doc.add_heading('1. Gestión de Acceso', level=2)
+access_management = [
+    ('¿Se revisan regularmente los derechos de acceso de los usuarios?', 1, 'No se realizan revisiones de los derechos de acceso de los usuarios.'),
+    ('¿Existen políticas y procedimientos documentados para la gestión de acceso a la información?', 2, 'Existen algunas políticas y procedimientos, pero están desactualizados o son incompletos.'),
+    ('¿Se revisan y actualizan regularmente las autorizaciones de acceso de los usuarios?', 3, 'Las autorizaciones se revisan y actualizan regularmente para la mayoría de los usuarios.'),
+    ('¿Se implementa la autenticación multifactorial para el acceso a sistemas críticos?', 4, 'La autenticación multifactorial se utiliza en todos los sistemas críticos.')
+]
+
+for aspecto, calificacion, razon in access_management:
+    doc.add_heading(aspecto, level=3)
+    doc.add_paragraph(f'Calificación: {calificacion}')
+    doc.add_paragraph(f'Razón: {razon}')
+
+# Seguridad Física y Ambiental
+doc.add_heading('2. Seguridad Física y Ambiental', level=2)
+physical_security = [
+    ('¿Se han identificado y protegido físicamente todas las áreas que contienen información sensible?', 3, 'La mayoría de las áreas con información sensible están identificadas y protegidas.'),
+    ('¿Existen controles para proteger contra desastres naturales (incendios, inundaciones, etc.)?', 4, 'Existen controles robustos y planes de protección documentados y actualizados.'),
+    ('¿Se implementan medidas de control de acceso físico como tarjetas de acceso o sistemas biométricos?', 3, 'Se utilizan medidas de control de acceso físico en la mayoría de las áreas sensibles.'),
+    ('¿Se monitorean y registran los accesos físicos a las áreas restringidas?', 4, 'Todos los accesos físicos a las áreas restringidas se monitorean y registran.')
+]
+
+for aspecto, calificacion, razon in physical_security:
+    doc.add_heading(aspecto, level=3)
+    doc.add_paragraph(f'Calificación: {calificacion}')
+    doc.add_paragraph(f'Razón: {razon}')
+
+# Gestión de Comunicaciones y Operaciones
+doc.add_heading('3. Gestión de Comunicaciones y Operaciones', level=2)
+communications_management = [
+    ('¿Existen políticas documentadas para la gestión de comunicaciones y operaciones?', 2, 'Existen políticas, pero están desactualizadas o son incompletas.'),
+    ('¿Se realizan copias de seguridad regulares de la información crítica?', 3, 'Se realizan copias de seguridad regularmente, pero no están bien documentadas.'),
+    ('¿Se han implementado controles para proteger la información durante la transmisión?', 4, 'Existen controles robustos para proteger la información durante la transmisión.'),
+    ('¿Se monitorizan y registran las actividades operacionales para detectar y prevenir actividades no autorizadas?', 4, 'Todas las actividades operacionales se monitorizan y registran.')
+]
+
+for aspecto, calificacion, razon in communications_management:
+    doc.add_heading(aspecto, level=3)
+    doc.add_paragraph(f'Calificación: {calificacion}')
+    doc.add_paragraph(f'Razón: {razon}')
+
+# Control de Acceso a la Información
+doc.add_heading('4. Control de Acceso a la Información', level=2)
+access_control = [
+    ('¿Se aplican controles de acceso basados en roles para limitar el acceso a la información?', 4, 'Todos los accesos están controlados por roles.'),
+    ('¿Se implementan políticas de contraseñas seguras (longitud, complejidad, expiración)?', 4, 'Existen políticas estrictas de contraseñas que se aplican consistentemente.'),
+    ('¿Se auditan regularmente los accesos a la información y sistemas para detectar accesos no autorizados?', 4, 'Todos los accesos se auditan regularmente.'),
+    ('¿Se utilizan herramientas de cifrado para proteger la información almacenada y en tránsito?', 3, 'El cifrado se utiliza en la mayoría de las áreas críticas.')
+]
+
+for aspecto, calificacion, razon in access_control:
+    doc.add_heading(aspecto, level=3)
+    doc.add_paragraph(f'Calificación: {calificacion}')
+    doc.add_paragraph(f'Razón: {razon}')
+
+# Gestión de Incidentes de Seguridad de la Información
+doc.add_heading('5. Gestión de Incidentes de Seguridad de la Información', level=2)
+incident_management = [
+    ('¿Existe un procedimiento documentado para la gestión de incidentes de seguridad de la información?', 4, 'Existen procedimientos bien documentados y actualizados para la gestión de incidentes.'),
+    ('¿Se lleva a cabo una formación regular para que el personal reconozca y reporte incidentes de seguridad?', 3, 'La mayoría del personal recibe formación regular sobre seguridad de la información.'),
+    ('¿Se registran y analizan todos los incidentes de seguridad para identificar causas y prevenir recurrencias?', 4, 'Todos los incidentes de seguridad se registran y analizan.'),
+    ('¿Se evalúan y mejoran continuamente los procedimientos de respuesta a incidentes?', 3, 'Los procedimientos se evalúan y mejoran ocasionalmente.')
+]
+
+for aspecto, calificacion, razon in incident_management:
+    doc.add_heading(aspecto, level=3)
+    doc.add_paragraph(f'Calificación: {calificacion}')
+    doc.add_paragraph(f'Razón: {razon}')
+
+# Conclusiones
+doc.add_heading('Conclusiones', level=1)
+doc.add_paragraph(
+    'El Departamento de Sistemas de la organización evaluada presenta una gestión de acceso y una seguridad física y ambiental que requieren mejoras significativas. '
+    'Las políticas y procedimientos, aunque presentes en algunas áreas, necesitan ser actualizados y aplicados de manera consistente. Las copias de seguridad y el '
+    'cifrado de la información deben ser mejor documentados y controlados. La gestión de incidentes de seguridad muestra una estructura adecuada, pero necesita una '
+    'mejora continua y sistemática.'
+)
+
+# Recomendaciones
+doc.add_heading('Recomendaciones', level=1)
+doc.add_paragraph('1. Gestión de Acceso: Implementar revisiones periódicas y documentadas de los derechos de acceso de los usuarios.')
+doc.add_paragraph('2. Políticas y Procedimientos: Actualizar y documentar todas las políticas y procedimientos relacionados con la seguridad de la información.')
+doc.add_paragraph('3. Copias de Seguridad y Cifrado: Establecer un sistema de copias de seguridad y cifrado bien documentado y verificado regularmente.')
+doc.add_paragraph('4. Formación del Personal: Aumentar la frecuencia y cobertura de la formación en seguridad de la información para todo el personal.')
+doc.add_paragraph('5. Mejora Continua: Establecer un proceso de mejora continua para la gestión de incidentes de seguridad y otras áreas críticas.')
+
+# Firma del Auditor
+doc.add_heading('Firma del Auditor:', level=1)
+doc.add_paragraph('_________________________')
+
+# Fecha
+doc.add_heading('Fecha:', level=1)
+doc.add_paragraph('_________________________')
+
+# Guardar el documento
+doc.save('/mnt/data/Informe_de_Auditoria_de_Sistemas.docx')
+
+print("Informe de auditoría generado y guardado como 'Informe_de_Auditoria_de_Sistemas.docx'")
